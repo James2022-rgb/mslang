@@ -1,0 +1,4 @@
+[submodule "thirdparty/slang"]
+	path = thirdparty/slang
+	url = https://github.com/James2022-rgb/slang
+	branch = fix/spirv-tools-target-guard
