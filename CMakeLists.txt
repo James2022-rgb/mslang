@@ -35,7 +35,10 @@ if(${_cross_compiling})
 endif()
 
 set(_enable_mprof OFF)
-if(${MSLANG_ENABLE_MPROF} AND NOT EMSCRIPTEN)
+if(${MSLANG_ENABLE_MPROF} AND TARGET mprof)
+  # mprof must be provided as a target by the consuming project. When it's
+  # absent (e.g. minimal entry points that don't pull mprof in), mslang
+  # silently disables Tracy instrumentation rather than failing to build.
   set(_enable_mprof ON)
 endif()
 

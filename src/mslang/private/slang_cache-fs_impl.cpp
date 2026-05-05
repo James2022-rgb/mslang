@@ -5,8 +5,20 @@
 #include "mbase/public/platform.h"
 
 // platform headers -------------------------------------
+#if MBASE_PLATFORM_WINDOWS
+# if !defined(NOMINMAX)
+#   define NOMINMAX
+# endif
+# if !defined(WIN32_LEAN_AND_MEAN)
+#   define WIN32_LEAN_AND_MEAN
+# endif
+# include <Windows.h>
+#endif
 #if MBASE_PLATFORM_LINUX || MBASE_PLATFORM_ANDROID
-# include <sys/file.h>
+# include <fcntl.h>     // open, O_RDWR, O_CREAT
+# include <sys/file.h>  // flock, LOCK_EX, LOCK_UN
+# include <sys/stat.h>  // struct stat, fstat
+# include <unistd.h>    // fsync, close
 #endif
 
 // public project headers -------------------------------
