@@ -339,7 +339,7 @@ std::optional<std::vector<uint32_t>> CompileSlangModuleEntryPointToSpirv(
 
 namespace {
 
-constexpr SpirvVersion kSpirvVersion = SpirvVersion::V_1_0;
+constexpr SpirvVersion kSpirvVersion = SpirvVersion::V_1_3;
 
 std::vector<slang::CompilerOptionEntry> MakeCompilerOptions(
   SlangCapabilityID additional_capability
